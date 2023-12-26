@@ -18,6 +18,7 @@ export const Single = props => {
 				</span>
 			</Link>
 		</div>
+		
 	);
 };
 

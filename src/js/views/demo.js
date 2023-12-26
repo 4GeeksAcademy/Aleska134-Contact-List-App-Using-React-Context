@@ -7,36 +7,79 @@ import "../../styles/demo.css";
 
 export const Demo = () => {
 	const { store, actions } = useContext(Context);
+	// const addContact = (e,data) => {
+
+		console.log(store.contacts);
+		
+
+			// fetch(`https://playground.4geeks.com/apis/fake/contact/`, {
+			// 	headers: {
+			// 		'Content-Type': 'application/json'
+			// 	},
+			// 	method: "POST"
+				// body:[]
+			// 	{
+			// 		"full_name": "Dave Bradley 2",
+			// 		"email": "dave@gmail.com",
+			// 		"agenda_slug": "my_super_agenda",
+			// 		"address":"47568 NW 34ST, 33434 FL, USA",
+			// 		"phone":"7864445566"
+			// }
+		// 	{}
+		// 	})
+		// 	.then(resp => {
+		// 		if (resp.status >= 200 && resp.status < 300){
+		// 			console.log("El request se hizo bien");
+		// 			return (resp.json());
+		// 		}else{
+		// 			console.log(`Hubo un error ${resp.status} en el request`);
+
+		// 		}
+		// 		// se podria continuar aquí
+		// 	})
+		// 	.then(resp => console.log(resp))
+		// 	.catch(error => {
+		// 		//manejo de errores
+		// 		console.error(error);
+		// 	})
+		// })
+
+
+		// }
 
 	return (
 		<div className="container">
-			<ul className="list-group">
-				{store.demo.map((item, index) => {
-					return (
-						<li
-							key={index}
-							className="list-group-item d-flex justify-content-between"
-							style={{ background: item.background }}>
-							<Link to={"/single/" + index}>
-								<span>Link to: {item.title}</span>
-							</Link>
-							{// Conditional render example
-							// Check to see if the background is orange, if so, display the message
-							item.background === "orange" ? (
-								<p style={{ color: item.initial }}>
-									Check store/flux.js scroll to the actions to see the code
-								</p>
-							) : null}
-							<button className="btn btn-success" onClick={() => actions.changeColor(index, "orange")}>
-								Change Color
-							</button>
-						</li>
-					);
-				})}
-			</ul>
+			<h1>Add new contact</h1>
+			<div>
+				<form method="POST">
+					<div className="mb-3">
+						<label className="form-label">Full Name:</label>
+						<input type="text" className="form-control" name="full_name" />
+					</div>
+
+					<div className="mb-3">
+						<label className="form-label">Email address</label>
+						<input type="email" className="form-control" name="email" />	
+					</div>
+					
+					<div className="mb-3">
+						<label className="form-label">Phone:</label>
+						<input type="number" className="form-control" name="phone" />
+					</div>
+
+					<div className="mb-3">
+						<label className="form-label">Address:</label>
+						<input type="text" className="form-control" name="address" />
+					</div>
+					<br />
+					<div className="d-grid">
+						<button className="btn btn-primary" type="submit" >Save</button>
+					</div>
+				</form>
+			</div>
 			<br />
 			<Link to="/">
-				<button className="btn btn-primary">Back home</button>
+				<a>Or get back to contacts</a>
 			</Link>
 		</div>
 	);
