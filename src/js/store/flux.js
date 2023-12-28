@@ -19,7 +19,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					email:'',
 					phone:'',
 					address:'',
-					id:''
+					id:'',
+					agenda_slug: "Aleska"
 				}
 			],
 		},
@@ -30,7 +31,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				.then((res)=> res.json())
 				.then((data)=> setStore({contacts: data}))
 				.catch((err)=> console.error(err))
-			}
+			},
+
 			}
 		}
 	};
